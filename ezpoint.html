@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Ordem de Serviço de Campo - Treinamento</title>
+  <link rel="stylesheet" href="ordem-servico.css" />
+
+</head>
+<body>
+  <div class="container" id="conteudo-os">
+    <div class="header-box">
+      <h1>Ordem de Serviço de Campo</h1>
+      <div class="os-number"><strong>Nº: <span id="numero-os">______</span></strong></div>
+    </div>
+
+    <h2>Treinamento</h2>
+
+    <div class="info-group">
+      <div class="info-row">
+        <div class="left-info info"><strong>Cliente:</strong> <span id="cliente">______</span></div>
+        <div class="right-info info"><strong>Técnico:</strong> <span id="tecnico">______</span></div>
+      </div>
+      <div class="info-row">
+        <div class="left-info info"><strong>Endereço:</strong> <span id="endereco">______</span></div>
+        <div class="right-info info"><strong>Software:</strong> <span id="software">______</span></div>
+      </div>
+    </div>
+
+    <div class="field"><strong>Data agendada:</strong> <span id="data-agendada">______</span></div>
+
+    
+    <div class="section">
+      <h3>1º - Dashboard</h3>
+      <div class="checkbox-group">
+        <label><input type="checkbox" /> Mensal</label>
+        <label><input type="checkbox" /> Diario</label>
+        <label><input type="checkbox" /> Perfil</label>        
+      </div>
+    </div>
+
+    <div class="section">
+      <h3>2º - Cadastro</h3>
+      <div class="checkbox-group">
+        <label><input type="checkbox" /> Feriado</label>
+        <label><input type="checkbox" /> Cargos</label>
+        <label><input type="checkbox" /> Departamentos</label>
+        <label><input type="checkbox" /> Horários / horário detalhado</label>
+        <label><input type="checkbox" /> Funcionários</label>
+        <label><input type="checkbox" /> Motivos de faltas / atrasos</label>
+
+
+
+      </div>
+    </div>
+
+    <div class="section">
+      <h3>3º - Gerenciamento</h3>
+      <div class="checkbox-group">
+        <label><input type="checkbox" /> Visualizar pontos</label>
+        <label><input type="checkbox" /> Adicionar ponto</label>
+        <label><input type="checkbox" /> Justificar faltas / atrasos</label>
+        <label><input type="checkbox" /> Definir férias</label>
+        <label><input type="checkbox" /> Relatórios espelho de ponto</label>
+        <label><input type="checkbox" /> Racalcular horas</label>
+      </div>
+    </div>
+
+    <div class="section">
+      <h3>4º - Suporte</h3>
+      <div class="checkbox-group">
+        <label><input type="checkbox" /> Canal para contato</label>
+        <label><input type="checkbox" /> Horário de funcionameto</label>
+        <label><input type="checkbox" /> Termo de imagem</label>        
+      </div>
+    </div>
+
+    <div class="section">
+      <h3>5º - Mobile</h3>
+      <div class="checkbox-group">
+        <label><input type="checkbox" /> Geração de Pin</label>
+        <label><input type="checkbox" /> Opções mobile</label>
+        <label><input type="checkbox" /> Relatório geo localização</label>
+        <label><input type="checkbox" /> Mapa geo localização</label>
+        <label><input type="checkbox" /> Interação mobile</label>
+        <label><input type="checkbox" /> Testar batidas</label>
+      </div>
+    </div>
+
+    <div class="section">
+      <h3>6º - Relógio</h3>
+      <div class="checkbox-group">
+        <label><input type="checkbox" /> Verificar relógio</label>
+        <label><input type="checkbox" /> Testar comunicação</label>
+        <label><input type="checkbox" /> Biometria cadastro</label>
+        <label><input type="checkbox" /> Testar batidas</label>
+        <label><input type="checkbox" /> Calibrar relógio</label>
+        <label><input type="checkbox" /> Batida usando matrícula e senha</label>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="info"><strong>Observação:</strong> ________________________________________________________________</div>
+
+      <div class="dates-inline">
+        <div class="field"><strong>Hora chegada:</strong> __:__</div>
+        <div class="field"><strong>Hora saída:</strong> __:__</div>
+        <div class="field"><strong>Data do atendimento:</strong> __/__/__</div>
+      </div>
+
+      <div class="signature-area">
+        <canvas id="signature-pad"></canvas>
+        <strong>__________________________________________________________</strong>
+        <div><strong><span id="cliente-assinatura">________________</span></strong></div>
+        <button id="clear-signature" style="margin-top: 10px;">Limpar Assinatura</button>
+      </div>
+    </div>
+
+    <div class="footer">
+      dll AUTOMAÇÃO<br />
+      Tel: (21) 2494-2280 | Email: sac@dllautomacao.com.br<br />
+      Endereço: Av. Olegário Maciel, 511/306 - Barra da Tijuca, Rio de Janeiro - RJ
+
+       <div class="botao-pdf no-print" style="text-align: center; margin-top: 20px;">
+       <button id="btnGerarPdf">Gerar PDF</button>
+  </div>
+    </div>
+  </div>
+
+  
+
+<script src="https://cdn.jsdelivr.net/npm/signature_pad@4.1.5/dist/signature_pad.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="gerar-pdf.js"></script> 
+
+
+
+<script>
+  function formatarDataBR(dataISO) {
+    if (!dataISO) return '';
+    const partes = dataISO.split('-'); 
+    if (partes.length !== 3) return dataISO;
+    return `${partes[2]}/${partes[1]}/${partes[0]}`; 
+  }
+
+  window.onload = function() {
+    const dadosOS = JSON.parse(localStorage.getItem('dadosOS'));
+    if (!dadosOS) return;
+
+    document.getElementById('numero-os').textContent = dadosOS.numeroOS || '';
+    document.getElementById('cliente').textContent = dadosOS.cliente || '';
+    document.getElementById('tecnico').textContent = dadosOS.tecnico || '';
+    document.getElementById('endereco').textContent = dadosOS.endereco || '';
+    document.getElementById('data-agendada').textContent = formatarDataBR(dadosOS.data);
+    document.getElementById('cliente-assinatura').textContent = dadosOS.cliente || '';
+
+    const softwareSpan = document.getElementById('software');
+    if (dadosOS.funcionalidades && dadosOS.funcionalidades.length > 0) {
+      softwareSpan.textContent = dadosOS.funcionalidades.join(", ");
+    } else {
+      softwareSpan.textContent = 'Não informado';
+    }
+  };
+</script>
+
+</body>
+</html>

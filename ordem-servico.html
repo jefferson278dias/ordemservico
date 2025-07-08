@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Ordem de Serviço de Campo - Treinamento</title>
+  <link rel="stylesheet" href="ordem-servico.css" />
+
+</head>
+<body>
+  <div class="container" id="conteudo-os">
+    <div class="header-box">
+      <h1>Ordem de Serviço de Campo</h1>
+      <div class="os-number"><strong>Nº: <span id="numero-os">______</span></strong></div>
+    </div>
+
+    <h2>Treinamento</h2>
+
+    <div class="info-group">
+      <div class="info-row">
+        <div class="left-info info"><strong>Cliente:</strong> <span id="cliente">______</span></div>
+        <div class="right-info info"><strong>Técnico:</strong> <span id="tecnico">______</span></div>
+      </div>
+      <div class="info-row">
+        <div class="left-info info"><strong>Endereço:</strong> <span id="endereco">______</span></div>
+        <div class="right-info info"><strong>Software:</strong> <span id="software">______</span></div>
+      </div>
+    </div>
+
+    <div class="field"><strong>Data agendada:</strong> <span id="data-agendada">______</span></div>
+
+   
+    <div class="section">
+      <h3>1º - Produtos</h3>
+      <div class="checkbox-group">
+        <label><input type="checkbox" /> Cadastrar Grupo de produtos</label>
+        <label><input type="checkbox" /> Modificadores</label>
+        <label><input type="checkbox" /> Cadastrar produto</label>
+        <label><input type="checkbox" /> Classes (Auto atendimento)</label>
+      </div>
+    </div>
+
+    <div class="section">
+      <h3>2º - Pessoas</h3>
+      <div class="checkbox-group">
+        <label><input type="checkbox" /> Perfil de usuário</label>
+        <label><input type="checkbox" /> Usuário</label>
+      </div>
+    </div>
+
+    <div class="section">
+      <h3>3º - Treinamento administrativo</h3>
+      <div class="checkbox-group">
+        <label><input type="checkbox" /> Configurações gerais (Empresa)</label>
+        <label><input type="checkbox" /> Formas de Pagamento</label>
+        <label><input type="checkbox" /> Pontos de Vendas</label>
+      </div>
+    </div>
+
+    <div class="section">
+      <h3>4º - PDV</h3>
+      <div class="checkbox-group">
+        <label><input type="checkbox" /> Baixar tabelas</label>
+        <label><input type="checkbox" /> Atualizações</label>
+        <label><input type="checkbox" /> Configurações do PDV</label>
+        <label><input type="checkbox" /> Abertura de caixa</label>
+        <label><input type="checkbox" /> Sangria / Suprimento</label>
+        <label><input type="checkbox" /> Venda balcão</label>
+        <label><input type="checkbox" /> Formas de pagamento (Multi-pagamento)</label>
+        <label><input type="checkbox" /> 10% do serviço</label>
+        <label><input type="checkbox" /> Desconto</label>
+        <label><input type="checkbox" /> Estorno e cancelamento</label>
+        <label><input type="checkbox" /> Funções</label>
+        <label><input type="checkbox" /> Pré-venda</label>
+        <label><input type="checkbox" /> Vendas mesa / cartão</label>
+        <label><input type="checkbox" /> Transferência de mesa</label>
+        <label><input type="checkbox" /> Fechamento de conta</label>
+        <label><input type="checkbox" /> Pagamento parcial</label>
+        <label><input type="checkbox" /> Vendas delivery</label>
+        <label><input type="checkbox" /> Alteração do pagamento</label>
+        <label><input type="checkbox" /> Encerramento de operador</label>
+        <label><input type="checkbox" /> Relatórios</label>
+      </div>
+    </div>
+
+    <div class="section">
+      <h3>5º - Fiscal</h3>
+      <div class="checkbox-group">
+        <label><input type="checkbox" /> Grupos de tributados</label>
+        <label><input type="checkbox" /> Contingência</label>
+        <label><input type="checkbox" /> Reemissão de NFC-e</label>
+        <label><input type="checkbox" /> Acesso ao invoicy</label>
+      </div>
+    </div>
+
+    <div class="section">
+      <h3>6º - Treinamento Financeiro</h3>
+      <div class="checkbox-group">
+        <label><input type="checkbox" /> Cadastro de cliente</label>
+        <label><input type="checkbox" /> Planos de Contas</label>
+        <label><input type="checkbox" /> Contas Bancárias</label>
+        <label><input type="checkbox" /> Movimentação Bancária</label>
+      </div>
+    </div>
+
+    <div class="section">
+      <h3>7º - Treinamento Estoque</h3>
+      <div class="checkbox-group">
+        <label><input type="checkbox" /> Cadastro de fornecedores</label>
+        <label><input type="checkbox" /> Entrada no estoque</label>
+        <label><input type="checkbox" /> Saída do estoque</label>
+        <label><input type="checkbox" /> Emissão de NF-e</label>
+        <label><input type="checkbox" /> Ordem de produção</label>
+        <label><input type="checkbox" /> Estoque mínimo</label>
+        <label><input type="checkbox" /> Consulta de estoque</label>
+        <label><input type="checkbox" /> Acerto de estoque</label>
+        <label><input type="checkbox" /> Relatórios de estoque</label>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="info"><strong>Observação:</strong> ________________________________________________________________</div>
+
+      <div class="dates-inline">
+        <div class="field"><strong>Hora chegada:</strong> __:__</div>
+        <div class="field"><strong>Hora saída:</strong> __:__</div>
+        <div class="field"><strong>Data do atendimento:</strong> __/__/__</div>
+      </div>
+
+      <div class="signature-area">
+        <canvas id="signature-pad"></canvas>
+        <strong>__________________________________________________________</strong>
+        <div><strong><span id="cliente-assinatura">________________</span></strong></div>
+        <button id="clear-signature" style="margin-top: 10px;">Limpar Assinatura</button>
+      </div>
+    </div>
+
+    <div class="footer">
+      dll AUTOMAÇÃO<br />
+      Tel: (21) 2494-2280 | Email: sac@dllautomacao.com.br<br />
+      Endereço: Av. Olegário Maciel, 511/306 - Barra da Tijuca, Rio de Janeiro - RJ
+
+       <div class="botao-pdf no-print" style="text-align: center; margin-top: 20px;">
+       <button id="btnGerarPdf">Gerar PDF</button>
+  </div>
+    </div>
+  </div>
+
+  
+
+<script src="https://cdn.jsdelivr.net/npm/signature_pad@4.1.5/dist/signature_pad.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="gerar-pdf.js"></script>
+
+
+
+<script>
+  function formatarDataBR(dataISO) {
+    if (!dataISO) return '';
+    const partes = dataISO.split('-'); 
+    if (partes.length !== 3) return dataISO;
+    return `${partes[2]}/${partes[1]}/${partes[0]}`; 
+  }
+
+  window.onload = function() {
+    const dadosOS = JSON.parse(localStorage.getItem('dadosOS'));
+    if (!dadosOS) return;
+
+    document.getElementById('numero-os').textContent = dadosOS.numeroOS || '';
+    document.getElementById('cliente').textContent = dadosOS.cliente || '';
+    document.getElementById('tecnico').textContent = dadosOS.tecnico || '';
+    document.getElementById('endereco').textContent = dadosOS.endereco || '';
+    document.getElementById('data-agendada').textContent = formatarDataBR(dadosOS.data);
+    document.getElementById('cliente-assinatura').textContent = dadosOS.cliente || '';
+
+    const softwareSpan = document.getElementById('software');
+    if (dadosOS.funcionalidades && dadosOS.funcionalidades.length > 0) {
+      softwareSpan.textContent = dadosOS.funcionalidades.join(", ");
+    } else {
+      softwareSpan.textContent = 'Não informado';
+    }
+  };
+</script>
+
+</body>
+</html>

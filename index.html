@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ordem de Serviço</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Ordem de Serviço</h1>
+
+    <label for="numeroOS">Número OS:</label>
+    <input type="text" id="numeroOS" placeholder="Digite o número da OS" maxlength="10" pattern="\d*" inputmode="numeric" required />
+
+    <label for="tecnico">Técnico:</label>
+    <input type="text" id="tecnico" placeholder="Nome do técnico" required />
+    
+    <label for="cliente">Cliente:</label>
+    <input type="text" id="cliente" placeholder="Nome do cliente" required />
+
+    <label for="cnpj">CNPJ:</label>
+    <input type="text" id="cnpj" placeholder="00.000.000/0000-00" maxlength="18" pattern="\d{2}\.\d{3}\.\d{3}/\d{4}-\d{2}" inputmode="numeric" required />
+
+    <label for="telefone">Telefone:</label>
+    <input type="tel" id="telefone" placeholder="(00) 00000-0000" maxlength="15" pattern="\(\d{2}\)\s?\d{4,5}-\d{4}" required />
+    
+    <label for="endereco">Endereço:</label>
+    <input type="text" id="endereco" placeholder="Rua, Número, Bairro, Cidade" required />
+    
+    <label for="email">E-mail:</label>
+    <input type="email" id="email" placeholder="email@exemplo.com" required />
+
+    <label for="data">Data da OS:</label>
+    <input type="date" id="data" required />
+
+    <h2>Funcionalidade:</h2>
+    <div class="checkbox-group">
+      <label><input type="radio" name="funcionalidade" value="PDV Web Automação" required> PDV - Web Automação</label>
+      <label><input type="radio" name="funcionalidade" value="C-plus"> C-plus</label>
+      <label><input type="radio" name="funcionalidade" value="Ezpoint"> Ezpoint</label>
+      <label><input type="radio" name="funcionalidade" value="Totvs"> Totvs</label>
+    </div>
+
+    <div class="button-group">
+      <button id="btnAbrirOS" class="primary-btn">Abrir Ordem de Serviço</button>
+      
+    </div>
+
+
+  <footer style="text-align: center; margin-top: 20px; font-size: 0.85rem; color: #666;">
+    Desenvolvido por Jefferson Dias | 
+    <a href="https://github.com/jefferson278dias" target="_blank" style="color: #0077cc; text-decoration: none;">
+      GitHub
+    </a>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
