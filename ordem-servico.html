@@ -182,5 +182,26 @@
   };
 </script>
 
-</body>
+   <script>
+      function ajustarCanvasAssinatura(canvas) {
+        const ratio = window.devicePixelRatio || 1;
+        canvas.width = canvas.offsetWidth * ratio;
+        canvas.height = canvas.offsetHeight * ratio;
+        canvas.getContext("2d").scale(ratio, ratio);
+      }
+  
+      window.addEventListener("load", () => {
+        const canvas = document.getElementById("signature-pad");
+        ajustarCanvasAssinatura(canvas);
+  
+        const signaturePad = new SignaturePad(canvas);
+  
+        const btnLimpar = document.getElementById("clear-signature");
+        btnLimpar.addEventListener("click", () => {
+          signaturePad.clear();
+        });
+      });
+    </script>
+  </body>
 </html>
+
